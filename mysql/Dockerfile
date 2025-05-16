@@ -31,6 +31,6 @@ RUN groupadd expense && \
     chown -R expense:expense /var/lib/mysql /var/run/mysqld /docker-entrypoint-initdb.d
 ADD scripts/*.sql /docker-entrypoint-initdb.d
 USER expense
-    # MYSQL_DATABASE=transactions \
-    # MYSQL_USER=expense \
-    # MYSQL_PASSWORD=ExpenseApp@1
+ENV  MYSQL_DATABASE=transactions \
+     MYSQL_USER=expense \
+     MYSQL_PASSWORD=ExpenseApp@1
