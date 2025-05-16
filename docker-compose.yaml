@@ -20,6 +20,8 @@ services:
     - source: mysql
       target: /var/lib/mysql # -v mysql:/var/lib/mysql
       type: volume
+    ports:
+    - "3306:3306"
   backend:
     image: backend:v1.0.0
     #image: lingadevops/backend:v1.0
@@ -27,6 +29,8 @@ services:
     command: sh -c "sleep 20 && node /opt/server/index.js"
     depends_on:
     - mysql
+    ports:
+    - "8080:8080"
   frontend:
     image: frontend:v1.0.0
     #image: lingadevops/frontend:v1.0
