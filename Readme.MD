@@ -1,3 +1,5 @@
+* Docker best practices should be followed for docker images.
+
 # Installing Roboshop Docker:
 * creating docker images
 
