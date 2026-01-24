@@ -24,7 +24,8 @@ RUN groupadd expense && \
     useradd -g expense expense && \
     chown -R expense:expense /var/lib/mysql /var/run/mysqld /docker-entrypoint-initdb.d
 ADD scripts/*.sql /docker-entrypoint-initdb.d
-USER expense
+
+#USER expense  #user is not required, bec after initialize of server entrypoint moved to non-root user.
     # MYSQL_DATABASE=transactions \
     # MYSQL_USER=expense \
     # MYSQL_PASSWORD=ExpenseApp@1
