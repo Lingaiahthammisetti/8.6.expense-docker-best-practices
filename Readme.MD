@@ -1,5 +1,4 @@
 # Important Point about MySQL user:
-
 * MySQL containers start as root only to initialize the database, but the actual MySQL process (mysqld) runs as the internal mysql user. This is the default, secure behavior of the official image, so you don’t need to force a non-root user yourself.                                                                                              
 * ✔ MySQL image is secure by default
 * ✔ mysqld does not run as root
@@ -9,7 +8,7 @@
 
 
 
-# Installing Roboshop Docker:
+# Installing Expense Docker:
 * Docker best practices should be followed for docker images.
 * creating docker images
 
@@ -59,6 +58,3 @@ docker run -d -p 81:81 --name debug --network expense debug:v1.1
 docker ps -a
 
 ```
-
-
-
