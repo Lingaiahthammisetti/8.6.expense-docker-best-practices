@@ -1,28 +1,22 @@
-#Docker Best Practises implemented
-FROM node:20.15.0-alpine3.20 
+#FROM node:20
+#FROM node:20.15.0-alpine3.20
+FROM node:20.20.1-alpine3.22
 EXPOSE 8080
 ENV DB_HOST=mysql
-RUN addgroup -S expense && adduser -S expense -G expense \
-    && mkdir /opt/server \
-    && chown expense:expense -R /opt/server
+#RUN useradd expense
+RUN addgroup -S expense && adduser -S expense -G expense 
+RUN mkdir /opt/server
+RUN chown expense:expense -R /opt/server
 WORKDIR /opt/server
 COPY package.json .
-COPY *.js /opt/server/
+COPY *.js .
 RUN npm install
 USER expense
-EXPOSE 8081
-CMD [ "node", "index.js" ]
+CMD ["node","index.js"]
 
-#alpine is the OS, on top it nodejs application implemented.
 
-# FROM node:20
-# EXPOSE 8080
-# ENV DB_HOST=mysql
-# RUN useradd expense
-# RUN mkdir /opt/server
-# RUN chown expense:expense -R /opt/server
-# WORKDIR /opt/server
-# COPY package.json .
-# COPY *.js .
-# RUN npm install
-# CMD [ "node", "index.js" ]
+# addgroup -S expense → Creates a system group named expense.
+# -S = system group (no login, lower UID/GID range).
+# adduser -S expense -G expense → Creates a system user named expense and assigns it to the expense group.
+# -S = system user
+# -G expense = add the user to the expense group

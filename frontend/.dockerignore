@@ -1,0 +1,33 @@
+# Ignore everything by default
+*
+
+# Allow SQL scripts directory
+!scripts/
+!scripts/*.sql
+
+# (Optional) If you have subfolders inside scripts
+!scripts/**/*.sql
+
+# Ignore unwanted file types explicitly
+*.exe
+*.dll
+*.bat
+*.sh
+*.log
+*.tmp
+
+# Ignore version control
+.git
+.gitignore
+
+# Ignore OS/system files
+.DS_Store
+Thumbs.db
+
+# Ignore editor/IDE configs
+.vscode/
+.idea/
+
+# Ignore Docker-related files you don’t need
+Dockerfile
+docker-compose.yml
